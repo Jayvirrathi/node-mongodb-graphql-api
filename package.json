@@ -1,0 +1,35 @@
+{
+  "name": "node-mongodb-graphql-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
+    "dev": "nodemon --exec babel-node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jayvirrathi/node-mongodb-graphql-api.git"
+  },
+  "keywords": [],
+  "author": "Jayvir Rathi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jayvirrathi/node-mongodb-graphql-api/issues"
+  },
+  "homepage": "https://github.com/Jayvirrathi/node-mongodb-graphql-api#readme",
+  "dependencies": {
+    "@babel/cli": "^7.12.13",
+    "@babel/core": "^7.12.13",
+    "@babel/node": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "apollo-server-express": "^2.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.15"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
