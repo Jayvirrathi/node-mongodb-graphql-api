@@ -19,20 +19,75 @@ npm start
 
 **Request:**
 
+**Request:**
+
 ```gql
-mutation {
-  createUser(firstName: "Elon", lastName: "Musk", email: "elon@tesla.com") {
+mutation register {
+  register(
+    input: { email: "elon@tesla.com", password: "test@1234", name: "Elon Musk" }
+  ) {
+    _id
+    name
     email
-    id
   }
 }
 
-query {
-  users {
-    id
-    firstName
-    lastName
+mutation login {
+  login(input: { email: "elon@tesla.com", password: "test@1234" }) {
+    _id
+    name
     email
+    token
   }
 }
+
+mutation createPost {
+  createPost(title: "Graphql", content: "Graphql API with MongoDB") {
+    _id
+    title
+    content
+    createdAt
+  }
+}
+
+query allPosts {
+  getAllPosts {
+    _id
+    title
+    content
+    userId {
+      _id
+      name
+    }
+  }
+}
+
+query singlePost {
+  getSinglePost(_id: "603bad66431ec20858a3f760") {
+    _id
+    title
+    content
+    userId {
+      _id
+      name
+    }
+  }
+}
+
+mutation createComment {
+  createComment(content: "Great Work Man", postId: "603bad66431ec20858a3f760") {
+    _id
+    content
+    createdAt
+  }
+}
+```
+
+**Authorization:**
+
+```
+{
+  "Authorization": "Bearer token"
+}
+
 ```
