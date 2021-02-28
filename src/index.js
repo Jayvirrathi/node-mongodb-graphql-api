@@ -1,13 +1,12 @@
 import { ApolloServer, gql } from 'apollo-server-express';
 import express from 'express';
 import mongoose from 'mongoose';
-import { resolvers } from './resolvers';
-import { typeDefs } from './typeDefs';
+import dotenv from 'dotenv';
+dotenv.config();
 import cors from 'cors';
 
-import dotenv from 'dotenv';
-
-dotenv.config();
+import { resolvers } from './resolvers';
+import { typeDefs } from './typeDefs';
 
 const port = process.env.PORT || 4000;
 const options = {
@@ -36,7 +35,7 @@ const startServer = async () => {
 
   server.applyMiddleware({ app });
 
-  await mongoose.connect('mongodb://localhost:27017/test3', options);
+  await mongoose.connect(process.env.MONGO_URI, options);
 
   app.listen({ port }, () =>
     console.log(
